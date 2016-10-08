@@ -7,6 +7,6 @@
 * [nodejs](https://github.com/seeyou404/snippets/blob/master/nodejs.md)
 
 ### Explanation
-1. the title of the snippet is necessary and it is perfect if brief
-2. the comments of the code should be necessary and appropriate
+1. The title of the snippet is necessary and it is perfect if brief
+2. The comments of the code should be necessary and appropriate
 3. You should indicate the source if the snippets are't original
