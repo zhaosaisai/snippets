@@ -404,7 +404,7 @@ template {
     box-shadow: 0px 0px 5px green;
   }
 ```
-* 盒子内部阴影
+#### 盒子内部阴影
 
 ```css
   .boxshadow{
@@ -467,7 +467,7 @@ template {
     filter:alpha(opacity=50);
   }
 ```
-* css设置背景全屏
+#### css设置背景全屏
 
 ```css
   html{
