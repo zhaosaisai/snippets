@@ -2,7 +2,7 @@
 
 ## 布局篇
 
-* 样式重置
+#### 样式重置
 
 ```css
 html {
@@ -288,7 +288,7 @@ template {
 ```
 > 参考[normalize.css](https://github.com/necolas/normalize.css)
 
-* 垂直居中
+#### 垂直居中
 
 ```css
   /*知道宽高*/
@@ -322,21 +322,21 @@ template {
   }
 ```
 
-* 消除表格默认的间隔
+#### 消除表格默认的间隔
 ```css
   table{
     border-collapse: collapse;
   }
 ```
 
-* 表格列宽自适应
+#### 表格列宽自适应
 ```css
   table td{
     white-space: nowrap;
   }
 ```
 
-* 盒子的阴影
+#### 盒子的阴影
 
 ```css
   /*一边阴影*/
@@ -411,7 +411,7 @@ template {
     box-shadow: inset 0 0 5px #ccc;
   }
 ```
-* 清除浮动
+#### 清除浮动
 
 ```css
   .clearfix{
@@ -441,7 +441,7 @@ template {
   }
 ```
 
-* 定义文本选择样式
+#### 定义文本选择样式
 
 ```css
   ::-webkit-selection, ::-moz-selection, ::selection{
@@ -450,7 +450,7 @@ template {
 ```
 
 
-* 长文本换行
+#### 长文本换行
 
 ```css
   .wrap{
@@ -459,7 +459,7 @@ template {
   }
 ```
 
-* 设置透明度
+#### 设置透明度
 
 ```css
   .opacity{
@@ -476,7 +476,7 @@ template {
   }
 ```
 
-* css3渐变模板
+#### css3渐变模板
 
 ```css
   .gradient{
@@ -489,7 +489,7 @@ template {
     background-image:-webkit-gradient(linear, left top, from(#000), to(#fff));
   }
 ```
-* @font-face模板
+#### @font-face模板
 
 ```css
   @font-face{
@@ -505,7 +505,7 @@ template {
   }
 ```
 
-* 隔行变色
+#### 隔行变色
 
 ```css
   table tr:nth-child(even){
@@ -516,7 +516,7 @@ template {
   }
 ```
 
-* 首字突出显示
+#### 首字突出显示
 
 ```css
   div::first-letter{
@@ -527,7 +527,7 @@ template {
   }
 ```
 
-* 兼容设置最小高度
+#### 兼容设置最小高度
 
 ```css
   .minHeight{
@@ -536,7 +536,7 @@ template {
     height:300px;
   }
 ```
-* 不同的链接显示
+#### 不同的链接显示
 ```css
   a[href^="http://"]{
     padding-left:20px;
@@ -552,7 +552,7 @@ template {
   }
 ```
 
-* 禁用移动端的选择高亮显示
+#### 禁用移动端的选择高亮显示
 
 ```css
   body{
