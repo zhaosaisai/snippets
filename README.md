@@ -22,7 +22,7 @@
   * [不同的链接显示](https://github.com/seeyou404/snippets/blob/master/css.md#不同的链接显示)
   * [禁用移动端的选择高亮显示](https://github.com/seeyou404/snippets/blob/master/css.md#禁用移动端的选择高亮显示)
 * [javascript](https://github.com/seeyou404/snippets/blob/master/javascript.md)
-  * [移动端页面初始化](https://github.com/seeyou404/snippets/blob/master/javascript.md#移动端页面初始化)
+  * [动态加载javascript](https://github.com/seeyou404/snippets/blob/master/javascript.md#动态加载javascript)
   * [移动端页面初始化](https://github.com/seeyou404/snippets/blob/master/javascript.md#移动端页面初始化)
   * [获取随机数](https://github.com/seeyou404/snippets/blob/master/javascript.md#获取随机数)
   * [获取元素的计算之后的样式](https://github.com/seeyou404/snippets/blob/master/javascript.md#获取元素的计算之后的样式)
