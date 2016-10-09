@@ -1,6 +1,6 @@
-# The common snippets of the javascript
+# The common snippets of the javascript :blush:
 
-#### 动态加载javascript
+#### :heartbeat: 动态加载javascript
 
 ```javascript
   function loadScript(url, callback){
@@ -25,7 +25,7 @@
 
 > From:[The best way to load external JavaScript](https://www.nczonline.net/blog/2009/07/28/the-best-way-to-load-external-javascript/)
 
-#### 移动端页面初始化
+#### :heartbeat: 移动端页面初始化
 
 
 ```javascript
@@ -62,7 +62,7 @@
   })
 ```
 
-#### 获取随机数
+#### :heartbeat: 获取随机数
 
 ```javascript
   function getRandom(min, max){
@@ -84,14 +84,14 @@
     return Math.round(Math.random() * (max - min + 1) + min, 10);
   }
 ```
-#### 获取元素的计算之后的样式
+#### :heartbeat: 获取元素的计算之后的样式
 
 ```javascript
   function getStyle(obj, attr){
     return obj.currentStyle ? obj.currentStyle[attr] : getComputedStyle(obj, null)[attr];
   }
 ```
-#### 判断对象的数据类型
+#### :heartbeat: 判断对象的数据类型
 
 ```javascript
   function type(obj){
@@ -99,7 +99,7 @@
   }
 ```
 
-#### 对象复制
+#### :heartbeat: 对象复制
 
 ```javascript
   function copy(obj, deep){
@@ -109,7 +109,7 @@
     return result = deep ? JSON.parse(JSON.stringify(obj)) : obj;
   }
 ```
-#### 判断网页是否在微信浏览器打开
+#### :heartbeat: 判断网页是否在微信浏览器打开
 
 ```javascript
   function isWeChat(){
@@ -117,7 +117,7 @@
   }
 ```
 
-#### 判断手机系统
+#### :heartbeat: 判断手机系统
 
 ```javascript
   function isApple(){
@@ -129,7 +129,7 @@
     return /android/i.test(navigator.userAgent.toLowerCase());
   }
 ```
-#### 获取查询字符串的值
+#### :heartbeat: 获取查询字符串的值
 
 ```javascript
     function getQuery(url){
@@ -147,7 +147,7 @@
       return query;
     }
 ```
-#### 获取元素在页面中的位置
+#### :heartbeat: 获取元素在页面中的位置
 
 ```javascript
   function getPosition(ele){
@@ -172,7 +172,7 @@
     return ele.getBoundingClientRect();
   }
 ```
-#### js仿照md5
+#### :heartbeat: js仿照md5
 
 ```javascript
   function md5(){
@@ -182,7 +182,7 @@
     }).join('').slice(0, 32);
   }
 ```
-#### 获取星期几
+#### :heartbeat: 获取星期几
 
 ```javascript
   function getDay(){
@@ -191,7 +191,7 @@
   }
 ```
 
-#### requestAnimationFrame的兼容性处理
+#### :heartbeat: requestAnimationFrame的兼容性处理
 
 ```javascript
   ;(function(){
