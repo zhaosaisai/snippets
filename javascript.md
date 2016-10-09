@@ -1,4 +1,4 @@
-## The common snippets of the javascript
+# The common snippets of the javascript
 
 * 动态加载javascript
 
