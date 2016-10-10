@@ -36,6 +36,10 @@
   * [获取星期几](https://github.com/seeyou404/snippets/blob/master/javascript.md#获取星期几)
   * [requestAnimationFrame的兼容性处理](https://github.com/seeyou404/snippets/blob/master/javascript.md#requestAnimationFrame的兼容性处理)
 * [nodejs](https://github.com/seeyou404/snippets/blob/master/nodejs.md)
+* [package.json](https://github.com/seeyou404/snippets/blob/master/package.json.md)
+  * [package.json](https://github.com/seeyou404/snippets/blob/master/package.json.md#package.json)
+  * [版本号解释](https://github.com/seeyou404/snippets/blob/master/package.json.md#版本号解释)
+  * [实例参考:npm的package.json文件](https://github.com/seeyou404/snippets/blob/master/package.json.md#实例参考:npm的package.json文件)
 
 ### Explanation
 1. The title of the snippet is necessary and it is perfect if brief
