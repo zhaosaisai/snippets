@@ -45,7 +45,9 @@
   * [gulp-sourcemaps：生成sourcemaps](https://github.com/seeyou404/snippets/blob/master/gulp.md#gulp-sourcemaps：生成sourcemaps)
   * [gulp-uglify：压缩js文件](https://github.com/seeyou404/snippets/blob/master/gulp.md#gulp-uglify：压缩js文件)
   * [gulp-imagemin：压缩图片](https://github.com/seeyou404/snippets/blob/master/gulp.md#gulp-imagemin：压缩图片)
-  
+  * [gulp-babel：编译es6](https://github.com/seeyou404/snippets/blob/master/gulp.md#gulp-babel：编译es6)
+
+
 ### Explanation
 1. The title of the snippet is necessary and it is perfect if brief
 2. The comments of the code should be necessary and appropriate
