@@ -141,3 +141,39 @@ gulp.task('imagemin', () => {
 
 gulp.task('default', ['imagemin']);
 ```
+#### :heartbeat: gulp-babel：编译es6
+
+```javascript
+//转换成普通的es5 有的特性不能转换
+const gulp = require('gulp');
+const babel = require('gulp-babel');
+
+gulp.task('babel', () => {
+  return gulp.src('./src/**/*.js')
+         .pipe(babel({
+           presets:['es2015']
+         }))
+         .pipe(gulp.dest('./js'));
+})
+
+gulp.task('default', ['babel']);
+```
+
+```javascript
+//可以使用generator特性
+const gulp = require('gulp');
+const babel = require('gulp-babel');
+
+gulp.task('babel', () => {
+  return gulp.src('./src/**/*.js')
+         .pipe(babel({
+           plugins:['transform-runtime']
+         }))
+         .pipe(gulp.dest('./js'));
+})
+
+gulp.task('default', ['babel']);
+
+```
+
+#### :heartbeat: gulp结合browser-sync自动刷新
