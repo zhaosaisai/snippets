@@ -40,7 +40,11 @@
   * [package.json](https://github.com/seeyou404/snippets/blob/master/package.json.md#package.json)
   * [版本号解释](https://github.com/seeyou404/snippets/blob/master/package.json.md#版本号解释)
   * [实例参考:npm的package.json文件](https://github.com/seeyou404/snippets/blob/master/package.json.md#实例参考:npm的package.json文件)
-
+* [gulp](https://github.com/seeyou404/snippets/blob/master/gulp.md)
+  * [gulp-sass：编译sass](https://github.com/seeyou404/snippets/blob/master/gulp.md#gulp-sass：编译sass)
+  * [gulp-sourcemaps：生成sourcemaps](https://github.com/seeyou404/snippets/blob/master/gulp.md#gulp-sourcemaps：生成sourcemaps)
+  * [gulp-uglify：压缩js文件](https://github.com/seeyou404/snippets/blob/master/gulp.md#gulp-uglify：压缩js文件)
+  * [gulp-imagemin：压缩图片](https://github.com/seeyou404/snippets/blob/master/gulp.md#gulp-imagemin：压缩图片)
 ### Explanation
 1. The title of the snippet is necessary and it is perfect if brief
 2. The comments of the code should be necessary and appropriate
