@@ -1,5 +1,5 @@
 # snippets :blush:
->The repository is used for collecting the common snippets of FE. Here are several different common code snippets. such as [css](https://github.com/seeyou404/snippets/blob/master/css.md)/[javascript](https://github.com/seeyou404/snippets/blob/master/javascript.md)/[nodejs](https://github.com/seeyou404/snippets/blob/master/nodejs.md)
+>The repository is used for collecting the common snippets of FE. Here are several different common code snippets. such as [css](https://github.com/seeyou404/snippets/blob/master/css.md)/[javascript](https://github.com/seeyou404/snippets/blob/master/javascript.md)/[nodejs](https://github.com/seeyou404/snippets/blob/master/nodejs.md)/[package.json](https://github.com/seeyou404/snippets/blob/master/package.json.md)/[gulp](https://github.com/seeyou404/snippets/blob/master/gulp.md)
 
 ### list of the snippets
 * [css](https://github.com/seeyou404/snippets/blob/master/css.md)
@@ -46,6 +46,7 @@
   * [gulp-uglify：压缩js文件](https://github.com/seeyou404/snippets/blob/master/gulp.md#gulp-uglify：压缩js文件)
   * [gulp-imagemin：压缩图片](https://github.com/seeyou404/snippets/blob/master/gulp.md#gulp-imagemin：压缩图片)
   * [gulp-babel：编译es6](https://github.com/seeyou404/snippets/blob/master/gulp.md#gulp-babel：编译es6)
+  * [gulp结合browser-sync自动刷新](https://github.com/seeyou404/snippets/blob/master/gulp.md#gulp结合browser-sync自动刷新)
 
 
 ### Explanation
