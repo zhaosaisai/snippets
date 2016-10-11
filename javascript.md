@@ -217,3 +217,75 @@
     };
   })()
 ```
+#### :heartbeat: 数组去重
+
+```javascript
+Array.prototype.unique = function() {
+  return Array.from(new Set(this));
+}
+```
+
+```javascript
+Array.prototype.unique = function() {
+  var sortArr = this.sort();
+  return sortArr.filter(function(v,i,context){
+    return v != context[i+1];
+  })
+}
+```
+
+```javascript
+Array.prototype.unique = function() {
+  var result = [];
+  this.forEach(function(v){
+    if(result.indexOf(v) === -1){
+      result.push(v);
+    }
+  })
+  return result;
+}
+```
+
+```javascript
+Array.prototype.unique = function() {
+  var json = {};
+  var result = [];
+  this.forEach(function(value){
+    var type = Object.prototype.toString.call(value).match(/\s(\w+)/)[1].toLowerCase();
+    if(!((type + '-'+value) in json)){
+      json[type + '-'+value] = true;
+      result.push(value);
+    }
+  })
+  return result;
+}
+```
+
+```javascript
+Array.prototype.unique = function() {
+  var sortArr = this.sort(),
+    i = 0,
+    len = sortArr.length;
+  for(; i < len; i++){
+    if(sortArr[i] === sortArr[i++]){
+      sortArr.splice(i,1);
+      i--;
+    }
+  }
+  return sortArr;
+}
+```
+
+```javascript
+Array.prototype.unique = function() {
+  var sortArr = this.sort(), result = [];
+  sortArr.reduce((v1,v2) => {
+    if(v1 !== v2){
+      result.push(v1);
+    }
+    return v2;
+  })
+  result.push(sortArr[sortArr.length - 1]);
+  return result;
+}
+```

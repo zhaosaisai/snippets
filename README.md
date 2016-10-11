@@ -35,6 +35,7 @@
   * [js仿照md5](https://github.com/seeyou404/snippets/blob/master/javascript.md#js仿照md5)
   * [获取星期几](https://github.com/seeyou404/snippets/blob/master/javascript.md#获取星期几)
   * [requestAnimationFrame的兼容性处理](https://github.com/seeyou404/snippets/blob/master/javascript.md#requestAnimationFrame的兼容性处理)
+  * [数组去重](https://github.com/seeyou404/snippets/blob/master/javascript.md#数组去重)
 * [nodejs](https://github.com/seeyou404/snippets/blob/master/nodejs.md)
 * [package.json](https://github.com/seeyou404/snippets/blob/master/package.json.md)
   * [package.json](https://github.com/seeyou404/snippets/blob/master/package.json.md#package.json)
@@ -46,6 +47,7 @@
   * [gulp-uglify：压缩js文件](https://github.com/seeyou404/snippets/blob/master/gulp.md#gulp-uglify：压缩js文件)
   * [gulp-imagemin：压缩图片](https://github.com/seeyou404/snippets/blob/master/gulp.md#gulp-imagemin：压缩图片)
   * [gulp-babel：编译es6](https://github.com/seeyou404/snippets/blob/master/gulp.md#gulp-babel：编译es6)
+  * [防止进程挂掉：gulp-plumber](https://github.com/seeyou404/snippets/blob/master/gulp.md#防止进程挂掉：gulp-plumber)
   * [gulp结合browser-sync自动刷新](https://github.com/seeyou404/snippets/blob/master/gulp.md#gulp结合browser-sync自动刷新)
 
 
