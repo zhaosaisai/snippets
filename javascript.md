@@ -26,7 +26,7 @@ const = arr => {
 }
 ```
 
-### :heartbeat: 获取函数的返回值 / value
+#### :heartbeat: 获取函数的返回值 / value
 
 ```js
 const value = func => {
