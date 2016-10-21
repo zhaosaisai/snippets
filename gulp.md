@@ -4,7 +4,7 @@
 >
 > <img height="256" width="960" src="https://github.com/seeyou404/snippets/blob/master/path.png">
 
-#### :heartbeat: gulp-sass：编译sass
+#### gulp-sass：编译sass
 
 ```javascript
 // 基本使用
@@ -37,7 +37,7 @@ gulp.task('default', ['sass']);
 
 ```
 
-#### :heartbeat: gulp-sourcemaps：生成sourcemaps
+#### gulp-sourcemaps：生成sourcemaps
 
 ```javascript
 const gulp = require('gulp');
@@ -77,7 +77,7 @@ gulp.task('sass', () => {
 gulp.task('default', ['sass']);
 
 ```
-#### :heartbeat: gulp-uglify：压缩js文件
+#### gulp-uglify：压缩js文件
 
 ```javascript
 // 基本使用
@@ -129,7 +129,7 @@ gulp.task('uglify', (cb) => {
 gulp.task('default', ['uglify']);
 
 ```
-#### :heartbeat: gulp-imagemin：压缩图片
+#### gulp-imagemin：压缩图片
 ```javascript
 const gulp = require('gulp');
 const imagemin = require('gulp-imagemin');
@@ -145,7 +145,7 @@ gulp.task('imagemin', () => {
 
 gulp.task('default', ['imagemin']);
 ```
-#### :heartbeat: gulp-babel：编译es6
+#### gulp-babel：编译es6
 
 ```javascript
 //转换成普通的es5 有的特性不能转换
@@ -180,7 +180,7 @@ gulp.task('default', ['babel']);
 
 ```
 
-#### :heartbeat: 防止进程挂掉：gulp-plumber
+#### 防止进程挂掉：gulp-plumber
 
 ```javascript
 const gulp = require('gulp');
@@ -217,7 +217,7 @@ gulp.task('sass', () => {
 gulp.task('default', ['sass']);
 ```
 
-#### :heartbeat: gulp结合browser-sync自动刷新
+#### gulp结合browser-sync自动刷新
 
 ```javascript
 const gulp = require('gulp');

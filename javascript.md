@@ -1,7 +1,7 @@
 # The common snippets of the javascript :blush:
 
 
-#### :heartbeat: 防反跳 / debounce
+#### 防反跳 / debounce
 
 ```js
 const debounce = (action, delay) => {
@@ -15,10 +15,10 @@ const debounce = (action, delay) => {
 }
 ```
 
-#### :heartbeat: 拉平数组 / flatten
+#### 拉平数组 / flatten
 
 ```js
-const = arr => {
+const fn = arr => {
     let list = []
     const flattenFunc = arg => arg.forEach(item => Array.isArray(item) ? flattenFunc(item) : list.push(item))
     flattenFunc(arr)
@@ -26,7 +26,7 @@ const = arr => {
 }
 ```
 
-#### :heartbeat: 获取函数的返回值 / value
+#### 获取函数的返回值 / value
 
 ```js
 const value = func => {
@@ -35,7 +35,7 @@ const value = func => {
 }
 ```
 
-#### :heartbeat: 动态加载javascript
+#### 动态加载javascript
 
 ```javascript
   function loadScript(url, callback){
@@ -60,7 +60,7 @@ const value = func => {
 
 > From:[The best way to load external JavaScript](https://www.nczonline.net/blog/2009/07/28/the-best-way-to-load-external-javascript/)
 
-#### :heartbeat: 移动端页面初始化
+#### 移动端页面初始化
 
 
 ```javascript
@@ -97,7 +97,7 @@ const value = func => {
   })
 ```
 
-#### :heartbeat: 获取随机数
+#### 获取随机数
 
 ```javascript
   function getRandom(min, max){
@@ -119,14 +119,14 @@ const value = func => {
     return Math.round(Math.random() * (max - min + 1) + min, 10);
   }
 ```
-#### :heartbeat: 获取元素的计算之后的样式
+#### 获取元素的计算之后的样式
 
 ```javascript
   function getStyle(obj, attr){
     return obj.currentStyle ? obj.currentStyle[attr] : getComputedStyle(obj, null)[attr];
   }
 ```
-#### :heartbeat: 判断对象的数据类型
+#### 判断对象的数据类型
 
 ```javascript
   function type(obj){
@@ -134,7 +134,7 @@ const value = func => {
   }
 ```
 
-#### :heartbeat: 对象复制
+#### 对象复制
 
 ```javascript
   function copy(obj, deep){
@@ -144,7 +144,7 @@ const value = func => {
     return result = deep ? JSON.parse(JSON.stringify(obj)) : obj;
   }
 ```
-#### :heartbeat: 判断网页是否在微信浏览器打开
+#### 判断网页是否在微信浏览器打开
 
 ```javascript
   function isWeChat(){
@@ -152,7 +152,7 @@ const value = func => {
   }
 ```
 
-#### :heartbeat: 判断手机系统
+#### 判断手机系统
 
 ```javascript
   function isApple(){
@@ -164,7 +164,7 @@ const value = func => {
     return /android/i.test(navigator.userAgent.toLowerCase());
   }
 ```
-#### :heartbeat: 获取查询字符串的值
+#### 获取查询字符串的值
 
 ```javascript
     function getQuery(url){
@@ -182,7 +182,7 @@ const value = func => {
       return query;
     }
 ```
-#### :heartbeat: 获取元素在页面中的位置
+#### 获取元素在页面中的位置
 
 ```javascript
   function getPosition(ele){
@@ -207,7 +207,7 @@ const value = func => {
     return ele.getBoundingClientRect();
   }
 ```
-#### :heartbeat: js仿照md5
+#### js仿照md5
 
 ```javascript
   function md5(){
@@ -217,7 +217,7 @@ const value = func => {
     }).join('').slice(0, 32);
   }
 ```
-#### :heartbeat: 获取星期几
+#### 获取星期几
 
 ```javascript
   function getDay(){
@@ -226,7 +226,7 @@ const value = func => {
   }
 ```
 
-#### :heartbeat: requestAnimationFrame的兼容性处理
+#### requestAnimationFrame的兼容性处理
 
 ```javascript
   ;(function(){
@@ -252,7 +252,7 @@ const value = func => {
     };
   })()
 ```
-#### :heartbeat: 数组去重
+#### 数组去重
 
 ```javascript
 Array.prototype.unique = function() {
@@ -325,7 +325,7 @@ Array.prototype.unique = function() {
 }
 ```
 
-#### :heartbeat: 操作className
+#### 操作className
 
 ```javascript
 //操作className时候的辅助函数
