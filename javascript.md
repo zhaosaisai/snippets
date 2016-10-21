@@ -289,3 +289,86 @@ Array.prototype.unique = function() {
   return result;
 }
 ```
+
+#### :heartbeat: 操作className
+
+```javascript
+//操作className时候的辅助函数
+function toArray(argu){
+  var splitText = typeof argu === 'string' ? (argu.indexOf(' ') !== -1 ? ' ' : ',') : ' ';
+  return Array.isArray(argu) ? argu : argu.split(splitText);
+}
+```
+>说明：以下四种方法的参数的形式可以为以下几种
+
+> * 数组：['classname1', 'classname2']
+> * string
+>  * 单字符串:'classname1'
+>  * 空格分隔: 'classname1 classname2'
+>  * 逗号分隔: 'classname1, classname2'
+
+```javascript
+HTMLElement.prototype.hasClass = function (classname) {
+  let selfClass = this.className.split(' ');
+      classname = toArray(classname);
+  if(this.classList){
+    for(let v of classname){
+      if(!this.classList.contains(v)){
+        return false;
+      }
+    }
+  }else{
+    for(let v of classname){
+      if(selfClass.indexOf(v) === -1){
+        return false;
+      }
+    }
+  }
+  return true;
+}
+```
+
+```javascript
+HTMLElement.prototype.addClass = function (classname) {
+  return this.className = Array.from(new Set((toArray(classname).join(' ') + ' ' + this.className).split(' '))).join(' ');
+}
+```
+
+```javascript
+HTMLElement.prototype.addClass = function (classname) {
+  classname = toArray(classname);
+  classname.forEach(function(v){
+    if(!this.hasClass(v)){
+      this.className += ' ' + v;
+    }
+  }.bind(this))
+  return this;
+}
+```
+
+```javascript
+HTMLElement.prototype.removeClass = function (classname) {
+  var selfClass = Array.from(new Set(this.className.split(' ')));
+      classname = toArray(classname);
+  classname.forEach(function(v){
+    if(selfClass.indexOf(v) !== -1){
+      selfClass.splice(selfClass.indexOf(v), 1);
+    }
+  })
+  this.className = selfClass.join(' ');
+  return this;
+}
+```
+
+```javascript
+HTMLElement.prototype.toggleClass = function (classname) {
+  classname = toArray(classname);
+  classname.forEach(function(v){
+    if(this.hasClass(v)){
+      this.removeClass(v)
+    }else{
+      this.addClass(v);
+    }
+  }.bind(this))
+}
+```
