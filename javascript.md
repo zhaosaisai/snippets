@@ -1,5 +1,40 @@
 # The common snippets of the javascript :blush:
 
+
+#### :heartbeat: 防反跳 / debounce
+
+```js
+const debounce = (action, delay) => {
+  let timer
+  return function () {
+    var context = this
+    var args = arguments
+    clearTimeout(timer)
+    timer = setTimeout(() => { action.apply(context, args) }, delay)
+  }
+}
+```
+
+#### :heartbeat: 拉平数组 / flatten
+
+```js
+const = arr => {
+    let list = []
+    const flattenFunc = arg => arg.forEach(item => Array.isArray(item) ? flattenFunc(item) : list.push(item))
+    flattenFunc(arr)
+    return list
+}
+```
+
+#### :heartbeat: 获取函数的返回值 / value
+
+```js
+const value = func => {
+  const valueFunc = arg => typeof arg === 'function' ? valueFunc(arg()) : arg
+  return valueFunc(func)
+}
+```
+
 #### :heartbeat: 动态加载javascript
 
 ```javascript
