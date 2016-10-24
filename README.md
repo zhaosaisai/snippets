@@ -1,5 +1,5 @@
 # snippets :blush:
->The repository is used for collecting the common snippets of FE. Here are several different common code snippets. such as [css](https://github.com/seeyou404/snippets/blob/master/css.md)/[javascript](https://github.com/seeyou404/snippets/blob/master/javascript.md)/[nodejs](https://github.com/seeyou404/snippets/blob/master/nodejs.md)
+>The repository is used for collecting the common snippets of FE. Here are several different common code snippets. such as [css](https://github.com/seeyou404/snippets/blob/master/css.md)/[javascript](https://github.com/seeyou404/snippets/blob/master/javascript.md)/[nodejs](https://github.com/seeyou404/snippets/blob/master/nodejs.md)/[package.json](https://github.com/seeyou404/snippets/blob/master/package.json.md)/[gulp](https://github.com/seeyou404/snippets/blob/master/gulp.md)
 
 ### list of the snippets
 * [css](https://github.com/seeyou404/snippets/blob/master/css.md)
@@ -22,6 +22,9 @@
   * [不同的链接显示](https://github.com/seeyou404/snippets/blob/master/css.md#不同的链接显示)
   * [禁用移动端的选择高亮显示](https://github.com/seeyou404/snippets/blob/master/css.md#禁用移动端的选择高亮显示)
 * [javascript](https://github.com/seeyou404/snippets/blob/master/javascript.md)
+  * [防反跳](https://github.com/seeyou404/snippets/blob/master/javascript.md#防反跳)
+  * [拉平数组](https://github.com/seeyou404/snippets/blob/master/javascript.md#拉平数组)
+  * [获取函数的返回值](https://github.com/seeyou404/snippets/blob/master/javascript.md#获取函数的返回值)
   * [动态加载javascript](https://github.com/seeyou404/snippets/blob/master/javascript.md#动态加载javascript)
   * [移动端页面初始化](https://github.com/seeyou404/snippets/blob/master/javascript.md#移动端页面初始化)
   * [获取随机数](https://github.com/seeyou404/snippets/blob/master/javascript.md#获取随机数)
@@ -35,6 +38,12 @@
   * [js仿照md5](https://github.com/seeyou404/snippets/blob/master/javascript.md#js仿照md5)
   * [获取星期几](https://github.com/seeyou404/snippets/blob/master/javascript.md#获取星期几)
   * [requestAnimationFrame的兼容性处理](https://github.com/seeyou404/snippets/blob/master/javascript.md#requestAnimationFrame的兼容性处理)
+  * [数组去重--6种方式](https://github.com/seeyou404/snippets/blob/master/javascript.md#数组去重)
+  * [操作className](https://github.com/seeyou404/snippets/blob/master/javascript.md#操作className)
+    * [hasClass](https://github.com/seeyou404/snippets/blob/master/javascript.md#hasClass)
+    * [addClass](https://github.com/seeyou404/snippets/blob/master/javascript.md#addClass)
+    * [removeClass](https://github.com/seeyou404/snippets/blob/master/javascript.md#removeClass)
+    * [toggleClass](https://github.com/seeyou404/snippets/blob/master/javascript.md#toggleClass)
 * [nodejs](https://github.com/seeyou404/snippets/blob/master/nodejs.md)
 * [package.json](https://github.com/seeyou404/snippets/blob/master/package.json.md)
   * [package.json](https://github.com/seeyou404/snippets/blob/master/package.json.md#package.json)
@@ -46,6 +55,9 @@
   * [gulp-uglify：压缩js文件](https://github.com/seeyou404/snippets/blob/master/gulp.md#gulp-uglify：压缩js文件)
   * [gulp-imagemin：压缩图片](https://github.com/seeyou404/snippets/blob/master/gulp.md#gulp-imagemin：压缩图片)
   * [gulp-babel：编译es6](https://github.com/seeyou404/snippets/blob/master/gulp.md#gulp-babel：编译es6)
+  * [防止进程挂掉：gulp-plumber](https://github.com/seeyou404/snippets/blob/master/gulp.md#防止进程挂掉：gulp-plumber)
+  * [gulp结合browser-sync自动刷新](https://github.com/seeyou404/snippets/blob/master/gulp.md#gulp结合browser-sync自动刷新)
+* [webpack](https://github.com/seeyou404/snippets/blob/master/webpack.md)
 
 
 ### Explanation

@@ -1,6 +1,6 @@
 # The fields of the package.json file :blush:
 
-#### :heartbeat: package.json
+#### package.json
 
 ```javascript
   {
@@ -72,7 +72,7 @@
 ```
 > [参考](http://mujiang.info/translation/npmjs/files/package.json.html)
 
-#### :heartbeat: 版本号解释
+#### 版本号解释
 
 ```javascript
   {
@@ -88,7 +88,7 @@
 
 }
 ```
-#### :heartbeat: 实例参考:npm的package.json文件
+#### 实例参考:npm的package.json文件
 
 ```javascript
 {

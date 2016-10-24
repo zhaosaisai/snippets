@@ -1,6 +1,10 @@
 # The common snippets of the gulp :blush:
 
-#### :heartbeat: gulp-sass：编译sass
+>先了解一下gulp.src(path)的path的几种书写方式：
+>
+> <img height="256" width="960" src="https://github.com/seeyou404/snippets/blob/master/path.png">
+
+#### gulp-sass：编译sass
 
 ```javascript
 // 基本使用
@@ -33,7 +37,7 @@ gulp.task('default', ['sass']);
 
 ```
 
-#### :heartbeat: gulp-sourcemaps：生成sourcemaps
+#### gulp-sourcemaps：生成sourcemaps
 
 ```javascript
 const gulp = require('gulp');
@@ -73,7 +77,7 @@ gulp.task('sass', () => {
 gulp.task('default', ['sass']);
 
 ```
-#### :heartbeat: gulp-uglify：压缩js文件
+#### gulp-uglify：压缩js文件
 
 ```javascript
 // 基本使用
@@ -125,7 +129,7 @@ gulp.task('uglify', (cb) => {
 gulp.task('default', ['uglify']);
 
 ```
-#### :heartbeat: gulp-imagemin：压缩图片
+#### gulp-imagemin：压缩图片
 ```javascript
 const gulp = require('gulp');
 const imagemin = require('gulp-imagemin');
@@ -141,7 +145,7 @@ gulp.task('imagemin', () => {
 
 gulp.task('default', ['imagemin']);
 ```
-#### :heartbeat: gulp-babel：编译es6
+#### gulp-babel：编译es6
 
 ```javascript
 //转换成普通的es5 有的特性不能转换
@@ -176,4 +180,89 @@ gulp.task('default', ['babel']);
 
 ```
 
-#### :heartbeat: gulp结合browser-sync自动刷新
+#### 防止进程挂掉：gulp-plumber
+
+```javascript
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const plumber = require('gulp-plumber');
+
+gulp.task('sass', () => {
+  return gulp.src('./sass/**/*.scss')
+         .pipe(plumber())
+         .pipe(sass())
+         .pipe(gulp.dest('./dist/css'))
+})
+
+gulp.task('default', ['sass']);
+```
+
+
+```javascript
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const plumber = require('gulp-plumber');
+
+gulp.task('sass', () => {
+  return gulp.src('./sass/**/*.scss')
+         .pipe(plumber({
+           errorHandler(err){ //自定义错误处理函数
+             console.log(err.toString());
+           }
+         }))
+         .pipe(sass())
+         .pipe(gulp.dest('./dist/css'))
+})
+
+gulp.task('default', ['sass']);
+```
+
+#### gulp结合browser-sync自动刷新
+
+```javascript
+const gulp = require('gulp');
+const babel = require('gulp-babel');
+const sass = require('gulp-sass');
+const plumber = require('gulp-plumber');  //gulp的容错处理，可防止出错的时候，进程挂掉
+const browserSync = require('browser-sync').create();
+const reload = browserSync.reload;
+
+//sass任务
+gulp.task('sass', () => {
+  return gulp.src('./sass/**/*.scss')
+         .pipe(plumber())
+         .pipe(sass({outStyle:'compressed'}).on('error', sass.logError))
+         .pipe(gulp.dest('./dist/css'))
+         .pipe(reload({stream:true}))
+})
+//编译es6的任务
+gulp.task('es6', () => {
+  return gulp.src('./js/**/*.js')
+         .pipe(plumber({
+           errorHandler(err){ //自定义错误处理函数
+             console.log('the error happening',err.toString());
+           }
+         }))
+         .pipe(babel({
+           presets:['es2015']
+         }))
+         .pipe(gulp.dest('./dist/js'))
+         .pipe(reload({stream:true}))
+})
+//自动刷新任务
+gulp.task('server', ['sass', 'es6'], () => {
+  browserSync.init({
+    server:'./',
+    notify:false //去掉提示信息-移动端页面很有用
+  })
+
+  //监听任务
+  gulp.watch('./sass/**/*.scss', ['sass']);
+  gulp.watch('./js/**/*.js', ['es6']);
+  gulp.watch('./*.html').on('change', reload);
+})
+//默认任务
+gulp.task('default', ['server']);
+
+
+```

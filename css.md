@@ -2,7 +2,7 @@
 
 ## 布局篇
 
-#### :heartbeat: 样式重置
+#### 样式重置
 
 ```css
 html {
@@ -288,7 +288,7 @@ template {
 ```
 > 参考[normalize.css](https://github.com/necolas/normalize.css)
 
-#### :heartbeat: 垂直居中
+#### 垂直居中
 
 ```css
   /*知道宽高*/
@@ -322,21 +322,21 @@ template {
   }
 ```
 
-#### :heartbeat: 消除表格默认的间隔
+#### 消除表格默认的间隔
 ```css
   table{
     border-collapse: collapse;
   }
 ```
 
-#### :heartbeat: 表格列宽自适应
+#### 表格列宽自适应
 ```css
   table td{
     white-space: nowrap;
   }
 ```
 
-#### :heartbeat: 盒子的阴影
+#### 盒子的阴影
 
 ```css
   /*一边阴影*/
@@ -404,14 +404,14 @@ template {
     box-shadow: 0px 0px 5px green;
   }
 ```
-#### :heartbeat: 盒子内部阴影
+#### 盒子内部阴影
 
 ```css
   .boxshadow{
     box-shadow: inset 0 0 5px #ccc;
   }
 ```
-#### :heartbeat: 清除浮动
+#### 清除浮动
 
 ```css
   .clearfix{
@@ -441,7 +441,7 @@ template {
   }
 ```
 
-#### :heartbeat: 定义文本选择样式
+#### 定义文本选择样式
 
 ```css
   ::-webkit-selection, ::-moz-selection, ::selection{
@@ -450,7 +450,7 @@ template {
 ```
 
 
-#### :heartbeat: 长文本换行
+#### 长文本换行
 
 ```css
   .wrap{
@@ -459,7 +459,7 @@ template {
   }
 ```
 
-#### :heartbeat: 设置透明度
+#### 设置透明度
 
 ```css
   .opacity{
@@ -467,7 +467,7 @@ template {
     filter:alpha(opacity=50);
   }
 ```
-#### :heartbeat: css设置背景全屏
+#### css设置背景全屏
 
 ```css
   html{
@@ -476,7 +476,7 @@ template {
   }
 ```
 
-#### :heartbeat: css3渐变模板
+#### css3渐变模板
 
 ```css
   .gradient{
@@ -489,7 +489,7 @@ template {
     background-image:-webkit-gradient(linear, left top, from(#000), to(#fff));
   }
 ```
-#### :heartbeat: @font-face模板
+#### @font-face模板
 
 ```css
   @font-face{
@@ -505,7 +505,7 @@ template {
   }
 ```
 
-#### :heartbeat: 隔行变色
+#### 隔行变色
 
 ```css
   table tr:nth-child(even){
@@ -516,7 +516,7 @@ template {
   }
 ```
 
-#### :heartbeat: 首字突出显示
+#### 首字突出显示
 
 ```css
   div::first-letter{
@@ -527,7 +527,7 @@ template {
   }
 ```
 
-#### :heartbeat: 兼容设置最小高度
+#### 兼容设置最小高度
 
 ```css
   .minHeight{
@@ -536,7 +536,7 @@ template {
     height:300px;
   }
 ```
-#### :heartbeat: 不同的链接显示
+#### 不同的链接显示
 ```css
   a[href^="http://"]{
     padding-left:20px;
@@ -552,7 +552,7 @@ template {
   }
 ```
 
-#### :heartbeat: 禁用移动端的选择高亮显示
+#### 禁用移动端的选择高亮显示
 
 ```css
   body{
