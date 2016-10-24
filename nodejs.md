@@ -50,6 +50,50 @@ path.basename('./index/index.js', '.js');
 //=> index
 path.basename('./index/index.js', 'dex.js');
 //=> in
-path.extname('./index/js');
-//=> ''
+path.basename('./index/js');
+//=> 'js'
+```
+#### url基本方法
+```javascript
+const url = require('url');
+
+// 解析url
+url.parse('https://github.com/seeyou404/snippets?name=seeyou404&age=23#fe');
+/*
+{
+   protocol: 'https:', //协议
+   slashes: true, //
+   auth: null, //认证信息
+   host: 'github.com', //域
+   port: null, //端口号
+   hostname: 'github.com', //主机
+   hash: '#fe', //哈希值
+   search: '?name=seeyou404&age=23', //查询字符串
+   query: 'name=seeyou404&age=23', // 查询字符串
+   pathname: '/seeyou404/snippets', // 路径
+   path: '/seeyou404/snippets?name=seeyou404&age=23', //完整路径
+   href: 'https://github.com/seeyou404/snippets?name=seeyou404&age=23#fe' //完整的url
+}
+*/
+
+// 格式化url--相当于url.parse的逆运算
+url.parse(urlObj);
+
+// url的路径转化
+url.resolve('seeyou404/index', 'js');
+//=> 'seeyou404/js'
+url.resolve('seeyou404/index/', 'js');
+//=> 'seeyou404/index/js'
+url.resolve('seeyou404/index', '/js');
+//=> '/js'
+url.resolve('https://github.com/seeyou404/', '/js');
+//=> 'https://github.com/js'
+url.resolve('https://github.com/seeyou404', 'js');
+//=> 'https://github.com/js'
+url.resolve('https://github.com/seeyou404/', 'js');
+//=> 'https://github.com/seeyou404/js'
+
+// 格式化url的查询字符串
+require('queryString').parse(url.parse('https://github.com/seeyou404/snippets?name=seeyou404&age=23#fe').query);
+//=> { name: 'seeyou404', age: '23' }
 ```
