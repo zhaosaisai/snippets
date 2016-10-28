@@ -18,7 +18,7 @@ const debounce = (action, delay) => {
 #### 拉平数组 / flatten
 
 ```js
-const fn = arr => {
+const flatten = arr => {
     let list = []
     const flattenFunc = arg => arg.forEach(item => Array.isArray(item) ? flattenFunc(item) : list.push(item))
     flattenFunc(arr)
