@@ -407,3 +407,160 @@ HTMLElement.prototype.toggleClass = function (classname) {
   }.bind(this))
 }
 ```
+
+#### 判断网页运行在电脑还是手机
+
+```javascript
+  //返回true是手机，否则是电脑
+  const isMobile = () => {
+    return ['android', 'iphone', 'symbianos', 'windows phone', 'ipad', 'ipod'].some((v) => {
+      return navigator.userAgent.toLowerCase().indexOf(v) >= 0;
+    })
+  }
+```
+
+#### 转意html
+
+```javascript
+  const escapeHTML = (html) => {
+    let htmlMap = {
+      '<': "&lt;",
+      '>':'&gt;',
+      '&':'&amp',
+      '"':'&quot;'
+    };
+
+    return html.replace(/[<>"&]/g, (char) => htmlMap[char]);
+  }
+```
+
+### 操作cookie
+
+```javascript
+/*
+  这里主要是一些操作cookie时候的一些工具方法
+*/
+class Utils {
+
+  //第一个方法主要用于转义cookie里面的特殊字符
+  encode(str){
+    return String(str).replace(/[,;"\s%\\]/g, (c) => encodeURIComponent(c));
+  }
+
+  //第二个方法主要是用于对比编码的字符串进行解码的方法
+  decode(str){
+    return decodeURIComponent(str);
+  }
+
+  //第三个方法主要是用于判断变量是不是纯粹的javascript对象的方法
+  isPlainObject(obj){
+    return !!obj && Object.prototype.toString.call(obj) === '[object Object]';
+  }
+
+  //第四个方法主要是进行回退的方法
+  fallback(value, fallback){
+    return value == null ? fallback : value;
+  }
+}
+export default new Utils();
+```
+
+```javascript
+import util from './utils.js';
+/*
+  这个是操作cookie的主要的类
+*/
+class Cookie{
+
+  constructor(config){
+    this.defaultConfig = util.isPlainObject(config) ? config : {path: '/', domain:'', secure: false, expires: 1};
+    this.defaultTime = 60 * 60 *24 * 1000;
+  }
+
+  set(key, value, options){
+    //设置cookie的方法--主要有两种设置形式，key为字符串或者对象也可以是数组。当key是字符串的时候，value就是其对应的值，当key是对象的时候，则键表示cookie的名称
+    //值表示cookie的值，value参数则是options设置对象，此时所有的cookie共用一个相同的选项设置对象
+    //当cookie是数组的时候，设置形式如下 [{name:value, 'options':{这个对象就是对应的配置选项}},...]
+    //name就是cookie的名称 value就是cookie的值  option就是这个cookie对应的选项对象
+
+    //先判断是不是对象--是对象的话，就利用循环转换成不是对象的cookie的设置方式
+    if(util.isPlainObject(key)){
+      //key是对象的情况--先判断一下key.option是否存在，存在则使用这个，不存在则使用options。注意这个时候的options是设置在value上的
+      value = key.option ? key.option : value;
+      Object.keys(key).forEach((v) => {
+        v !== 'option' && this.set(v, key[v], value);
+      })
+    }else if(Array.isArray(key)){
+      //key是数组的情况
+      key.forEach((v) => {
+        this.set(v, value);
+      })
+    }else{
+      //key是字符串的情况
+      //先对options进行类型的判断
+      options = util.isPlainObject(options) ? options : {expires:1}
+      //然后再获取到cookie中最重要的一项设置--expires
+      let expires = options.expires || this.defaultConfig.expires || 1;
+      let path = options.path || this.defaultConfig.path || '/';
+      let secure = options.secure || this.defaultConfig.secure || false;
+      let domain = options.domain || this.defaultConfig.domain || '';
+      let expiresType = typeof expires;
+      if(expiresType === 'string'){
+        expires = new Date(expires);
+      }else if(expiresType === 'number'){
+        expires = new Date(Date.now() + this.defaultTime * expires);
+      }
+      //然后在对expires进行标准化
+      ('toGMTString' in expires) && (expires = expires.toGMTString());
+      //设置cookie
+      document.cookie = `${util.encode(key)}=${util.encode(value)}; path=${path}; domain=${domain}; expires=${expires}; secure=${secure}`;
+    }
+
+  }
+
+  get(key){
+    //获取cookie的方法--如果不传递参数，则默认是获取所有的cookie,以json对象的形式返回-也可以传递一个参数--获取指定名称的cookie
+    let cookies = document.cookie;
+    let cookieResult = {};
+    let result = {};
+
+    //浏览器客户端没有cookie，则直接返回
+    if(cookies == "") return;
+
+    cookies.split('; ').forEach((value) => {
+      value.replace(/^(.+)=(.+)$/g, (a, k, v) => {
+        cookieResult[k] = v;
+      })
+    })
+    //利用参数判断返回的情况
+    //这里主要分三种情况--1、key是字符串，返回对应的cookie值--2、key是数组，返回一个包含这些名称的json对象--3、key不存在，直接返回所有的cookie，json对象格式
+    if(key && Array.isArray(key)){
+      key.forEach((v) => {
+        result[v] = cookieResult[v];
+      })
+    }else if(key && typeof key === 'string'){
+      result = cookieResult[key];
+    }else{
+      result = cookieResult;
+    }
+    return result;
+  }
+
+  clear(key){
+    //删除cookie的方法
+    //分三种情况--1、key为undefined：删除所有的cookie
+    //           2、key为数组：删除数组内指定的cookie
+    //           3、key为字符串：删除指定名称的cookie
+    let keyArr = Array.isArray(key) ? key : (key !== undefined ? [key] : Object.keys(this.get()));
+    keyArr.forEach((v) => {
+      this.set(v, '', {expires:-1});
+    })
+  }
+  
+  isabled(){
+    //判断cookie是否能用的方法
+    return navigator.cookieEnabled;
+  }
+}
+export default Cookie;
+```

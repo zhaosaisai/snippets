@@ -44,6 +44,8 @@
     * [addClass](https://github.com/seeyou404/snippets/blob/master/javascript.md#addClass)
     * [removeClass](https://github.com/seeyou404/snippets/blob/master/javascript.md#removeClass)
     * [toggleClass](https://github.com/seeyou404/snippets/blob/master/javascript.md#toggleClass)
+  * [判断网页运行在电脑还是手机](https://github.com/seeyou404/snippets/blob/master/javascript.md#判断网页运行在电脑还是手机)
+  * [cookie的操作](https://github.com/seeyou404/snippets/blob/master/javascript.md#cookie的操作)
 * [nodejs](https://github.com/seeyou404/snippets/blob/master/nodejs.md)
 * [package.json](https://github.com/seeyou404/snippets/blob/master/package.json.md)
   * [package.json](https://github.com/seeyou404/snippets/blob/master/package.json.md#package.json)
