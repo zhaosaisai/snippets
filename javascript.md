@@ -556,11 +556,166 @@ class Cookie{
       this.set(v, '', {expires:-1});
     })
   }
-  
+
   isabled(){
     //判断cookie是否能用的方法
     return navigator.cookieEnabled;
   }
 }
 export default Cookie;
+```
+
+### 函数节流
+
+```javascript
+function throttle(func, wait, options){
+  //设置三个变量用于保存信息
+  var context,  //保存上下文
+      args, //保存参数
+      result; //保存函数的返回值
+
+  //设置一个保存定时器的timer
+  var timeout = null;
+
+  //设置上一次函数执行的时间戳
+  var previous = 0;
+
+  //设置options的默认值
+  if(!options){
+    options = {};
+  }
+
+  //设置执行函数
+  var later = function(){
+    //如果options.leading为false则每次出发回调后将previous置为0
+    previous = options.leading === false ? 0 : Date.now();
+
+    timeout = null;
+
+    result = func.apply(context, args);
+
+    if(!timeout){
+      context = args = null;
+    }
+  }
+
+  return function(){
+
+    //先保存这次函数的执行时间
+    var now = Date.now();
+
+    //接着判断是否需要在刚刚开始的时候执行函数
+    if(!previous && options.leading === false){
+      //进到这里面说明就不需要
+      previous = now;
+    }
+
+    //接着在获取到时间的差值
+    var remaining = wait - (now - previous);  //主要比较的就是两次函数的执行时间和预先设定的时间的差值
+
+    //保存这个函数的上下文和参数
+    context = this;
+    args = arguments;
+
+    //开始根据判断条件进行函数的调用
+    if(remaining < 0 || remaining > wait){
+      //进入到这里就表示函数可以进行调用了
+      //remaining < 0 一开始就要执行
+      //remaining > wait 正常的执行条件
+
+      if(timeout){
+        //如果存在定时器，说明还有没有执行的定时器，清除掉
+        clearTimeout(timeout);
+        timeout = null;
+      }
+
+      //重置这次函数的执行时间，下次执行的时候需要判断
+      previous = now;
+
+      //执行函数
+      result = func.apply(context, args);
+
+      //重置变量，防止内存泄漏
+      if(!timeout){
+        context = args = null;
+      }
+    }else if(!timeout && options.trailing !== false){
+      //最后一次需要出发的情况
+      timeout = setTimeout(later,remaining);
+    }
+
+    //返回结果
+    return result;
+  }
+
+}
+```
+
+### 函数去抖
+
+```javascript
+function debounce(func, wait, immedicate){
+  /*
+    参数的基本解释：
+      func: function 需要进行去抖的函数
+      wait： 去抖时间
+      immedicate： 设置去抖函数的触发时机，设置为true则事件发生的时候立即触发。否则在事件结束wait时间之后触发
+  */
+
+  //设置几个需要用到的局部变量
+  var context, //存储this
+      args, //存储传递给去抖函数的参数
+      timestamp, //存储每次函数触发的时间
+      timeout, //存储对定时器的引用
+      result; //存储原函数的返回值
+
+      //主要就是这个函数，这个函数就是定时器调用的函数，我们需要在这个函数里面做一件十分重要的事就是判断函数触发的时机
+
+      var later = function(){
+
+        //首先获取时间差
+        var last = Date.now() - timestamp;
+
+        //再看一下有没有达到函数调用的时间
+        if(last < wait && last >= 0){
+          //重置函数调用
+          timeout = setTimeout(later, wait - last);
+        }else{
+          //说明可以调用函数了，
+          //吧timeout设置为null，以便下次判断
+          timeout = null;
+          //但是需要先判断一下immedicate，因为如果这个为true，则我们不需要调用了
+          if(!immedicate){
+            //说明不是立即调用
+            result = func.apply(context, args);
+            if(!timeout){
+              context = args = null;
+            }
+          }
+        }
+      }
+
+      return function(){
+        //闭包的形式，方便传递参数
+        context = this;
+        args = arguments;
+
+        //每次函数调用的时间
+        timestamp = Date.now();
+
+        var callNow = immedicate && !timeout; //immedicate为true且函数不是第一次调用
+
+        if(!timeout){
+          //如果能进到这里，表示的是这个函数不是第一次触发了
+          //如果是第一次触发，我们需要调用定时器了
+          timeout = setTimeout(later, wait);
+        }
+        if(callNow){
+          //如果是立即调用，就直接调用func函数
+          result = func.apply(context, args);
+          context = args = null; //释放资源
+        }
+        return result;
+      }
+}
 ```

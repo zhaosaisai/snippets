@@ -46,6 +46,8 @@
     * [toggleClass](https://github.com/seeyou404/snippets/blob/master/javascript.md#toggleClass)
   * [判断网页运行在电脑还是手机](https://github.com/seeyou404/snippets/blob/master/javascript.md#判断网页运行在电脑还是手机)
   * [cookie的操作](https://github.com/seeyou404/snippets/blob/master/javascript.md#cookie的操作)
+  * [函数节流](https://github.com/seeyou404/snippets/blob/master/javascript.md#函数节流)
+  * [函数去抖](https://github.com/seeyou404/snippets/blob/master/javascript.md#函数去抖)
 * [nodejs](https://github.com/seeyou404/snippets/blob/master/nodejs.md)
   * [path基本方法](https://github.com/seeyou404/snippets/blob/master/nodejs.md#path基本方法)
     * [path.normalize--规范化字符串](https://github.com/seeyou404/snippets/blob/master/nodejs.md#path基本方法)
