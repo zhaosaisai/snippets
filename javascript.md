@@ -299,10 +299,9 @@ Array.prototype.unique = function() {
 ```javascript
 Array.prototype.unique = function() {
   var sortArr = this.sort(),
-    i = 0,
-    len = sortArr.length;
-  for(; i < len; i++){
-    if(sortArr[i] === sortArr[i++]){
+    i = 0;
+  for(; i < sortArr.length; i++){
+    if(sortArr[i] === sortArr[i+1]){
       sortArr.splice(i,1);
       i--;
     }
