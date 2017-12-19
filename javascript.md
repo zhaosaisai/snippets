@@ -718,3 +718,65 @@ function debounce(func, wait, immedicate){
       }
 }
 ```
+
+### 求数组最大值
+
+```javascript
+const arrayMax = arr => Math.max(...arr)
+```
+
+### 求数组的最小值
+
+```javascript
+const arrayMin = arr => Math.min(...arr)
+```
+
+### chunk函数
+
+```javascript
+const chunk = (arr, size) => Array.from({length: Math.ceil(arr.length / size)}, (v, i) => arr.slice(i * size, i * size + size))
+```
+
+### compact: 去除数组中值为falsey的元素
+
+```javascript
+const compact = (arr) => arr.filter(Boolean)
+```
+
+### 计算一个值在数组中出现的次数
+
+```javascript
+const countOccurrences = (arr, value) => arr.reduce((a, v) => v === value ? a + 1 : a + 0, 0)
+```
+
+### deepFlatten: 拉平数组
+
+```javascript
+const deepFlatten = (arr) => [].concat(...arr.map(v => Array.isArray(v) ? deepFlatten(v) : v))
+```
+
+### difference: 返回数组的差值
+
+```javascript
+const difference = (a, b) => {
+  const s = new Set(b)
+  return a.filter(x => !s.has(x))
+}
+```
+
+### 删除数组中的元素，直到回调函数返回true
+
+```javascript
+const dropElements = (arr, func) => {
+  while(arr.length > 0 && !func(arr[0])) {
+    arr.shift()
+  }
+  return arr
+}
+```
+
+### 返回索引是某个值的倍数的元素
+
+```javascript
+const everyNth = (arr, nth) => arr.filter((e, i) => i % nth === 0)
+```
