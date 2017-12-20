@@ -780,3 +780,64 @@ const dropElements = (arr, func) => {
 ```javascript
 const everyNth = (arr, nth) => arr.filter((e, i) => i % nth === 0)
 ```
+
+### 过滤出数组中没有重复值的元素
+
+```javascript
+const filterNoneUnique = arr => arr.filter(i => arr.indexOf(i) === arr.lastIndexOf(i))
+```
+
+### 拉平数组
+
+```javascript
+const flatten = arr => arr.reduce((a, v) => a.concat(v), [])
+```
+
+### 拉平数组(深拉平)
+
+```javascript
+const flattenDepth = (arr, depth = 1) => depth != 1 ? arr.reduce((a, v) => a.concat(Array.isArray(v) ? flattenDepth(v, depth - 1) : v), []) : arr.reduce((a, v) => a.concat(v), [])
+```
+
+### 对数组按照特定条件分组
+
+```javascript
+const groupBy = (arr, func) => arr.map(typeof func === 'function' ? func : val => val[func])
+                                  .reduce((acc, val, i) => {
+                                    acc[val] = (acc[val] || []).concat(arr[i])
+                                    return acc
+                                  }, {})
+```
+
+### 返回数组的第一个元素
+
+```javascript
+const head = arr => arr[0]
+```
+
+### 返回除数组最后一个元素之外的所有元素
+
+```javascript
+const initial = arr => arr.slice(0, -1)
+```
+
+### 初始化范围数组
+
+```javascript
+const initializeArrayWithRange = (end, start = 0) => Array.from({length: end - start}).map((v, i) => i + start)
+```
+
+### 初始化并以特定的值填充数组
+
+```javascript
+const initializeArrayWithValues = (n, value = 0) => Array(n).fill(value)
+```
+
+### 返回数组交集
+
+```javascript
+const intersection = (a, b) => {
+  const s = new Set(b)
+  return a.filter(x => s.has(x))
+}
+```
