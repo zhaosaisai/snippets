@@ -887,3 +887,129 @@ const remove = (arr, func) => Array.isArray(arr) ? arr.filter(func).reduce((acc,
   return acc.concat(val)
 }, []) : []
 ```
+
+### 返回数组中的随机的元素
+
+```javascript
+const sample = arr => arr[Math.floor(Math.random() * arr.length)]
+```
+
+### 打乱数组的顺序
+
+```javascript
+const shuffle = arr => arr.sort(() => Math.random() - 0.5)
+```
+
+### 返回两个数组的交集
+
+```javascript
+const similiarity = (arr, values) => arr.filter(v => values.includes(v))
+```
+
+### 返回两个数组的差值
+
+```javascript
+const symmetricDifference = (a, b) => {
+  const sA = new Set(a)
+  const sB = new Set(b)
+
+  return [
+    ...a.filter(x => !sB.has(x)),
+    ...b.filter(x => !sA.has(x))
+  ]
+}
+```
+
+### 返回数组中第一个之外的元素
+
+```javascript
+const tail = arr => arr.length > 1 ? arr.slice(1) : arr
+```
+
+### 返回数组的前n个元素
+
+```javascript
+const take = (arr, n = 1) => arr.slice(0, n)
+```
+
+### 返回数组的并集
+
+```javascript
+const union = (a, b) => Array.from(new Set([...a, ...b]))
+```
+
+### 筛选数组剔除某些值的元素
+
+```javascript
+const without = (arr, ...args) => arr.filter(v => !args.includes(v))
+```
+
+### zip函数
+
+```javascript
+const zip = (...arrays) => {
+  const maxLength = Math.max(...arrays.map(x => x.length))
+  return Array.from({length: maxLength}).map((_, i) => {
+    return Array.from({length: arrays.length}, (_, k) => arrays[k][i])
+  })
+}
+```
+
+### 判断元素是否在可视区内
+
+```javascript
+const elementIsVisibleInViewport = (el, partiallyVisible = false) => {
+  const { top, left, bottom, right } = el.getBoundingClientRect()
+  return partiallyVisible
+  ? ((top > 0 && top < innerHeight) || (bottom > 0 && bottom < innerHeight) || (left > 0 && left < innerWidth) || (right > 0 && right < innerWidth))
+  : top >= 0 && left >= 0 && bottom <= innerHeight && right <= innerWidth
+}
+```
+
+### 获取当前页的滚动位置
+
+```javascript
+const getScrollPosition = (el = window) => ({
+  x: el.pageXOffset ? el.pageXOffset : el.scrollLeft,
+  y: el.pageYOffset ? el.pageYOffset : el.scrollTop
+})
+```
+
+### 获取url的查询字符串
+
+```javascript
+const getURLParameters = url => url.match(/([^?=&]+)(=[^&]*)/g).reduce((a, v) => (a[v.slice(0, v.indexOf('='))] = v.slice(v.indexOf('=') + 1), a), {})
+```
+
+### 页面重定向
+
+```javascript
+const redirect = (url, asLink = true) => asLink ? window.location.href = url : window.location.replace(url)
+```
+
+### 平滑的滚动到页面的顶部
+
+```javascript
+const scrollTop = () => {
+  const c = document.documentElement.scrollTop || document.body.scrollTop
+  if(c > 0) {
+    window.requestAnimationFrame(scrollTop)
+    window.scrollTo(0, c - c / 8)
+  }
+}
+```
+
+### 返回两个日期之间的差异(天)
+
+```javascript
+const getDaysDiffBetweenDates = (dateInitial, dateFinal) => (dateInitial - dateFinal) / (1000 * 3600 * 24)
+```
+
+### 将JSON对象转换为日期
+
+```javascript
+const JSONToDate = arr => {
+  const dt = new Date(parseInt(arr.toString().substr(6)))
+  return `${ dt.getDate() }/${ dt.getMonth() + 1 }/${ dt.getFullYear() }`
+}
+```
