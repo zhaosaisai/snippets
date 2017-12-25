@@ -841,3 +841,49 @@ const intersection = (a, b) => {
   return a.filter(x => s.has(x))
 }
 ```
+
+### 返回数组的最后一个元素
+
+```javascript
+const last = arr => arr[arr.length - 1]
+```
+
+### 将数组中的值映射到对象
+
+```javascript
+const mapObject = (arr, fn) => {
+  const keyValue = [arr, arr.map(fn)]
+  return keyValue[0].reduce((acc, val, ind) => (acc[val] = keyValue[1][ind], acc), {})
+}
+```
+
+### 返回数组的第n个元素
+
+```javascript
+const nthElement = (arr, n = 0) => (n > 0 ? arr.slice(n + 1) : arr.slice(n))[0]
+```
+
+### 从对象中选取给定键的键值对
+
+```javascript
+const pick = (obj, arr) => arr.reduce((acc, curr) => (curr in obj && (acc[curr] = obj[curr]), acc), {})
+```
+
+### 从数组中筛选指定的值
+
+```javascript
+const pull = (arr, ...args) => {
+  let pulled = arr.filter(v => !args.includes(v))
+  arr.length = 0
+  pulled.forEach(v => arr.push(v))
+}
+```
+
+### 从数组中移除使给定函数返回false的元素
+
+```javascript
+const remove = (arr, func) => Array.isArray(arr) ? arr.filter(func).reduce((acc, val) => {
+  arr.splice(arr.indexOf(val), 1)
+  return acc.concat(val)
+}, []) : []
+```
