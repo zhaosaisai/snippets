@@ -1013,3 +1013,111 @@ const JSONToDate = arr => {
   return `${ dt.getDate() }/${ dt.getMonth() + 1 }/${ dt.getFullYear() }`
 }
 ```
+
+### 链式异步函数
+
+```javascript
+const chainAsync = fns => {
+  let curr = 0
+  let next = () => fns[curr++](next)
+  next()
+}
+```
+
+### compose函数(从右向左执行函数)
+
+```javascript
+const compose = (...fns) => fns.reduce((f, g) => (...args) => f(g(...args)))
+```
+
+### pipe函数(从左向右执行函数)
+
+```javascript
+const pipe = (...fns) => fns.reduce((f, g) => (...args) => g(f(...args)))
+```
+
+### 将异步函数转换为一个promise
+
+```javascript
+const promisify = func => (...args) => new Promise((resolve, reject) => func(...args, (err, result) => err ? reject(err) : resolve(result)))
+```
+
+### 顺序执行一系列的promise
+
+```javascript
+const runPromiseSeries = ps => ps.reduce((p, next) => p.then(next), Promise.resolve())
+```
+
+### 延迟异步函数的执行
+
+```javascript
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
+```
+
+### 返回一组数据的平均值
+
+```javascript
+const arrayAverage = arr => arr.reduce((acc, val) => acc + val, 0) / arr.length
+```
+
+### 返回一组数据的总和
+
+```javascript
+const arraySum = arr => arr.reduce((acc, val) => acc + val, 0)
+```
+
+### Collatz算法(如果n是偶数, 则返回n/2。否则返回3n+1)
+
+```javascript
+const collatz = n => n % 2 === 0 ? n / 2 : 3 * n + 1
+```
+
+### 将数字转换为数组
+
+```javascript
+const digitize = n => [...String(n)].map(i => parseInt(i))
+```
+
+### 计算两点之间的距离
+
+```javascript
+const distance = (x0, y0, x1, y1) => Math.hypot(x1 - x0, y1 - y0)
+```
+
+### 计算一个数字的阶乘
+
+```javascript
+const factorial = n => n < 0 ? (() => {throw new TypeError('Negative numbers are not allowed!')})() : n <= 1 ? n : n * factorial(n - 1)
+```
+
+### 包含斐波那契值的数组
+
+```javascript
+const fibonacci = n => Array(n).fill(0).reduce((acc, val, i) => acc.concat(i > 1 ? acc[i - 1] + acc[i - 2] : i), [])
+```
+
+### 计算两个数字的最大公约数(important)
+
+```javascript
+const gcd = (x, y) => !y ? x : gcd(y, x % y)
+```
+
+### 计算两个数字的最小公倍数(important)
+
+```javascript
+const lcm = (x,y) => {
+  const gcd = (x, y) => !y ? x : gcd(y, x % y);
+  return Math.abs(x*y)/(gcd(x,y));
+};
+```
+
+### 返回数字数组的中间值
+
+```javascript
+const median = arr => {
+  const mid = Math.floor(arr.length / 2)
+  const nums = arr.sort((a, b) => a - b)
+
+  return arr.length % 2 !== 0 ? nums[mid] ? (nums[mid - 1] + nums[mid]) / 2
+}
+```
