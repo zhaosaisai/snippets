@@ -1121,3 +1121,59 @@ const median = arr => {
   return arr.length % 2 !== 0 ? nums[mid] ? (nums[mid - 1] + nums[mid]) / 2
 }
 ```
+
+### 返回指定范围内的随机整数
+
+```javascript
+const randomIntegerInRange = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min
+```
+
+### 返回指定范围内的随机数
+
+```javascript
+const randomNumberInRange = (min, max) => Math.random() * (max - min) + min
+```
+
+### 将数字保留指定的位数
+
+```javascript
+const round = (n, decimals = 0) => Number(`${Math.round(`${n}e${decimals}`)}e-${decimals}`)
+```
+
+### 返回数字数组的标准差
+
+```javascript
+const standardDeviation = (arr, usePopulation = false) => {
+  onst mean = arr.reduce((acc, val) => acc + val, 0) / arr.length;
+  return Math.sqrt(
+    arr.reduce((acc, val) => acc.concat(Math.pow(val - mean, 2)), [])
+    .reduce((acc, val) => acc + val, 0) / (arr.length - (usePopulation ? 0 : 1))
+  )
+}
+```
+
+### 从json对象中移除指定属性之外的任何特性
+
+```javascript
+const cleanObj = (obj, keysToKeep = [], childIndicator) => {
+  Object.keys(obj).forEach(key => {
+    if(key === childIndicator) {
+      cleanObj(obj[key], keysToKeep, childIndicator)
+    }else if(!keysToKeep.includes(key)) {
+      delete obj[key]
+    }
+  })
+}
+```
+
+### 从给定的键值对创建对象
+
+```javascript
+const objectFromPairs = arr => arr.reduce((a, v) => (a[v[0]] = v[1], a), {})
+```
+
+### 将json对象转化为键值对数组
+
+```javascript
+const objectToPairs = obj => Object.keys(obj).map(k => [k, obj[k]])
+```
