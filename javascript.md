@@ -1177,3 +1177,67 @@ const objectFromPairs = arr => arr.reduce((a, v) => (a[v[0]] = v[1], a), {})
 ```javascript
 const objectToPairs = obj => Object.keys(obj).map(k => [k, obj[k]])
 ```
+
+### 浅复制
+
+```javascript
+const shallowClone = obj => Object.assign({}, obj)
+```
+
+### 将字符串中每个单词的首字母大写
+
+```javascript
+const capitalizeEveryWord = str => str.replace(/\b[a-z]/g, char => char.toUpperCase())
+```
+
+### 转义正则表达式中用到的字符
+
+```javascript
+const escapeRegExp = str => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+```
+
+### 将驼峰法字符串转换为指定形式
+
+```javascript
+const fromCamelCase = (str, separator = '_') => str.replace(/([a-z\d])([A-Z])/g, '$1' + separator + '$2')
+.replace(/([A-Z]+)([A-Z][a-z\d]+)/g, '$1' + separator + '$2').toLowerCase();
+```
+
+### 为字符串加...
+
+```javascript
+const truncateString = (str, num) =>
+str.length > num ? str.slice(0, num > 3 ? num - 3 : num) + '...' : str;
+```
+
+### hexToRgb
+
+```javascript
+const hexToRgb = hex => {
+  const extendHex = shortHex => '#' + shortHex.slice(shortHex.startWith('#') ? 1 : 0).split('').map(x => x + x).join('')
+  const extendedHex = hex.slice(hex.startsWith('#') ? 1 : 0).length === 3 ? extendHex(hex) : hex
+  return `rgb(${parseInt(extendedHex.slice(1), 16) >> 16}, ${(parseInt(extendedHex.slice(1), 16) & 0x00ff00) >> 8}, ${parseInt(extendedHex.slice(1), 16) & 0x0000ff})`
+}
+```
+
+### RGBToHex
+
+```javascript
+const RGBToHex = (r, g, b) => ((r << 16) + (g << 8) + b).toString(16).padStart(6, '0')
+```
+
+### 生成UUID
+
+```javascript
+const UUIDGenerator = () =>
+  ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
+  (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+);
+```
+
+### 验证邮箱
+
+```javascript
+const validateEmail = str =>
+  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(str)
+```
